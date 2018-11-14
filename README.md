@@ -590,3 +590,68 @@ map是一种key，value的数据结构，在其他语言中也是存在的
     }
 ```
 
+### 结构体（实体类）struct
+
+###### 结构体语法规则
+
+```
+ type name struct{
+    字段一 字段类型
+    字段二 字段类型
+ }
+```
+###### 示例一： 我们创建一个长方形的结构体，包含了长和宽的属性
+
+```$xslt
+    type Rectangle struct {
+     	Lengths float32 
+     	Width float32
+    }
+```
+
+###### 创建实体 
+  
+  > 姿势一 
+  
+  ```$xslt
+    var r  = new (Rectangle)     
+    r.Lengths = 3.7
+    r.Width = 2.3
+    
+    fmt.Println(r)    
+  ```
+  
+  > 姿势二
+  
+  ```$xslt
+    r1 := Rectangle{}
+    r1.Lengths = 2.3
+    r1.Width = 2.5
+    
+    fmt.Println(r1)
+  ```
+###### 还可以给实体类写方法，在函数部分已经提到过一次
+
+```$xslt
+    //定义一个长方体的结构体
+    type Rectangle struct {
+     	Lengths float32 
+     	Width float32
+    }
+   
+    //设置一个求面积方法
+    func (c Rectangle) Area() float32{
+        return c.Lengths * c.Width
+    }
+    //初始化对象
+    var r  = new (Rectangle)     
+    r.Lengths = 3.7
+    r.Width = 2.3
+    fmt.Println(c.Area())
+```   
+
+
+
+
+
+
