@@ -3,7 +3,6 @@ package main
 import "fmt"
 import (
 	"learngo/consttest"
-	"learngo/pack"
 )
 
 var (
@@ -18,8 +17,6 @@ func main() {
 	testa()
 	consttest.Consts()
 	println(consttest.Orange)
-	pack.PackTest()
-
 }
 
 func test()  {
