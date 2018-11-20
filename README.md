@@ -649,6 +649,82 @@ map是一种key，value的数据结构，在其他语言中也是存在的
     r.Width = 2.3
     fmt.Println(c.Area())
 ```   
+###### 结构体组合
+
+虽然Golang中没有面向对象语言中的继承关系，但是他可以通过组合来实现
+类似于继承的行为。 
+
+如下：
+
+```$xslt
+    //动物类
+    type Animal struct {
+    	leg   int
+    	head  int
+    	mouth int
+    	food  string
+    	string
+    }
+    
+    //猫和动物结构体组合
+    //猫和动物类组合 猫具有了动物类的所有属性和方法
+    type Cat struct {
+    	tail int
+    	Animal
+    }
+    
+    //吃东西
+    func (a Animal) Eat() {
+    	fmt.Println(a.string + " eat " + a.food)
+    }
+    
+    var cat = new(Cat)
+    cat.food = "Mouse"
+    cat.string = "Cat"
+    cat.head = 1
+    cat.leg = 4
+    cat.mouth = 1
+    cat.tail = 1
+    cat.Eat()
+```
+
+_这里不将标准包的内容，但是有一点需要注意，想要转json要把参数设置为全集参数，也就是首字母大写，全局参数可以通过json标签改变json字段名_
+
+###### 如果结构体的字段名相同
+    1. 外层的字段名会覆盖内层的字段名称（相当于子类重写）
+    2. 同一字段名称不可以在同级出现
+    
+```
+//动物类
+type Animal struct {
+	Leg   int
+	Head  int
+	Mouth int
+	Food  string
+	string
+}
+
+//鸟和动物结构体组合
+type Bird struct {
+	Wing int
+	Leg string
+	Animal
+}
+	var a = new(Animal)
+	a.Food = "insect"
+	a.Head = 1
+	a.Mouth = 1
+	a.Leg = 2
+	a.string = "bird"
+	var b = new(Bird)
+	b.Animal = *a
+	b.Wing = 2
+	b.Leg = "leg"
+	b.Eat()
+	fmt.Println(common.JsonEncode(b))
+	
+	//{"Wing":2,"Leg":"leg","Head":1,"Mouth":1,"Food":"insect"}
+```
 
 
 

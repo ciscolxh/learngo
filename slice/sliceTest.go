@@ -5,6 +5,7 @@ import (
 	"bytes"
 )
 
+
 func SliceTest() {
 
 	var arrayList = [10] int{0, 2, 4, 6, 8, 10, 12, 14, 16, 18}
@@ -52,8 +53,5 @@ func BytesTest(){
 	fmt.Println(string(m))
 	slice := append(append(by[:4], '-'),  by[5:]...)
 	fmt.Println(string(slice))
-
-
-
 
 }

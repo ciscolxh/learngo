@@ -1,0 +1,6 @@
+package scantest
+
+
+func ScanTest() {
+
+}
