@@ -26,6 +26,7 @@ func main() {
 			fmt.Print(strconv.Itoa(i) +" ")
 			fmt.Println( inputString)
 			i++
+
 		}
 	}
 	defer file.Close()
